@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home_page.css') }}">
+    <meta charset="UTF-8">
+    <title>Assistance Program Watcher</title>
+</head>
+<body>
+
+<h1>Assistance Program Watcher</h1>
+<table>
+  <tr>
+    <th>Program Name</th>
+    <th>Eligible Treatments</th>
+    <th>Status</th>
+    <th>Grant Amount</th>
+  </tr>
+  {% for item in data %}
+  <tr>
+    <td>{{ item[0] }}</td>
+    <td class="treatment_data"><div>
+        {% for treatment in item[1] %}
+        <p>{{treatment}}</p>
+        {% endfor %}
+    </div></td>
+      {% if item[2] == 'Open' %}
+    <td class="status_open">{{ item[2] }}</td>
+      {% else %}
+    <td class="status_closed">{{ item[2] }}</td>
+      {%  endif %}
+    <td>{{ item[3] }}</td>
+  </tr>
+  {% endfor %}
+
+
+</table>
+
+</body>
+</html>
