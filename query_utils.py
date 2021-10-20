@@ -17,8 +17,6 @@ SELECT_ROW = "SELECT * FROM programs WHERE name=?"
 
 SELECT_ALL = "SELECT * FROM programs"
 
-DELETE_ALL_ROWS = "DELETE FROM programs"  # TODO REMOVE AFTER TESTING
-
 
 def connect_to_db():
     return sqlite3.connect('assistance_program.db')
@@ -38,10 +36,10 @@ def add_fund_to_db(connection, program):
 def update_fund_in_db(connection, program):
     with connection:
         row = get_row(connection, program.name)
-        name_in_db = row[0][0]
-        if program.name != name_in_db:
-            print("ERROR: Assistance program name on the website has changed")  # todo - and/change to real error
-        if row[0] != program.get_program_as_db_row():
+        if not row:
+            print("ERROR: Assistance program name on the website has changed")
+            # todo - add error
+        elif row[0] != program.get_program_as_db_row():
             update_row(connection, program)
 
 
@@ -64,10 +62,3 @@ def get_row(connection, program_name):
 def get_full_table(connection):
     with connection:
         return connection.execute(SELECT_ALL).fetchall()
-
-
-# helper function for testing
-def truncate_table(connection):
-    with connection:
-        connection.execute(DELETE_ALL_ROWS)
-
