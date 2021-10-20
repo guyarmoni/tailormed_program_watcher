@@ -1,7 +1,7 @@
 # TailorMed Assistance Program Watcher
 
 ## Entry Points
-**Scraper.py**: Creates a DB entity for Assistance Programs, or updates the DB if exists, and updates the relevant assistance programs using a scraper on the foundation’s website.
+**Scraper.py**: Creates a DB entity for Assistance Programs, or updates the DB if exists; updates the relevant assistance programs using a scraper on the foundation’s website.
 
 **App.py**: Creates a UI view that contains the most updated assistance programs, and their status, available for the patients at all times.
 
