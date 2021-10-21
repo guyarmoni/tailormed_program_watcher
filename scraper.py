@@ -3,7 +3,7 @@ import query_utils as q
 
 
 def main():
-    # connecting to if exists, otherwise creating a new one
+    # connecting to DB if exists, otherwise creating a new one
     connection = q.connect_to_db()
     q.create_table(connection)
 

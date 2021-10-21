@@ -38,14 +38,9 @@ def update_fund_in_db(connection, program):
         row = get_row(connection, program.name)
         if not row:
             print("ERROR: Assistance program name on the website has changed")
-            # todo - add error
+            # todo - error handling needed for name changed
         elif row[0] != program.get_program_as_db_row():
             update_row(connection, program)
-
-
-def get_status(connection, program):
-    with connection:
-        return connection.execute(GET_FUND_STATUS, (program.name, )).fetchall()[0][0]
 
 
 def update_row(connection, program):
