@@ -3,7 +3,7 @@
 ## Entry Points
 **Scraper.py**: Creates a DB entity for Assistance Programs, or updates the DB if exists; updates the relevant assistance programs using a scraper on the foundation’s website.
 
-**App.py**: Creates a UI view that contains the most updated assistance programs, and their status, available for the patients at all times.
+**App.py**: Servres the UI view that contains the most updated assistance programs, and their status, available for the patients at all times.
 
 ## Files
 ### parse_utils.py
@@ -20,7 +20,7 @@ Contains query and DB-related functions.
 - Uses *sqlite3* module for creating, filling and updating the DB.
 
 ### app.py
-Application for the UI presenting the information from the DB.
+Server for the UI presenting the information from the DB.
 
 **Technologies:**
 - Uses *Flask* web framework.
